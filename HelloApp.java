@@ -4,10 +4,19 @@ public class HelloApp {
 
         String names;
 
-        if (args.length > 0) {
-            names = String.join(", ", args);
-        } else {
+        if (args.length == 0) {
             names = "World";
+        } else {
+            StringBuilder sb = new StringBuilder();
+
+            for (String name : args) {
+                if (sb.length() > 0) {
+                    sb.append(", ");
+                }
+                sb.append(name);
+            }
+
+            names = sb.toString();
         }
 
         System.out.println("Hello, " + names + "!");
